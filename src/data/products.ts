@@ -20,7 +20,7 @@ export const products: Product[] = [
     reviews: 28,
     label: "Más querido",
     image:
-      "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=850&q=85",
+      "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=700&q=75",
     alt: "Florero artesanal en cerámica color arena",
   },
   {
@@ -32,7 +32,7 @@ export const products: Product[] = [
     reviews: 16,
     label: "Hecho a mano",
     image:
-      "https://images.unsplash.com/photo-1600369671236-e74521d4b6ad?auto=format&fit=crop&w=850&q=85",
+      "https://images.unsplash.com/photo-1600369671236-e74521d4b6ad?auto=format&fit=crop&w=700&q=75",
     alt: "Manta tejida en tonos neutros sobre un sillón",
   },
   {
@@ -43,7 +43,7 @@ export const products: Product[] = [
     rating: "4.8",
     reviews: 12,
     image:
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=850&q=85",
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=75",
     alt: "Lámpara de mesa de luz cálida",
   },
   {
@@ -55,7 +55,7 @@ export const products: Product[] = [
     reviews: 34,
     label: "Últimas unidades",
     image:
-      "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=850&q=85",
+      "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=700&q=75",
     alt: "Bandeja de madera con piezas de cerámica",
   },
 ];

@@ -12,6 +12,7 @@ import {
 
 type SiteHeaderProps = {
   cartCount: number;
+  query: string;
   onSearch: (value: string) => void;
 };
 
@@ -21,14 +22,11 @@ const navigation = [
   { label: "Nuestra historia", href: "#historia" },
 ];
 
-export function SiteHeader({ cartCount, onSearch }: SiteHeaderProps) {
+export function SiteHeader({ cartCount, query, onSearch }: SiteHeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [query, setQuery] = useState("");
-
   function updateSearch(value: string) {
-    setQuery(value);
     onSearch(value);
   }
 

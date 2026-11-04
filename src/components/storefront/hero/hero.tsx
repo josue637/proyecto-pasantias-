@@ -6,7 +6,7 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-image">
         <Image
-          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=85"
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=75"
           alt="Sala luminosa con muebles naturales y detalles cuidadosamente seleccionados"
           fill
           priority

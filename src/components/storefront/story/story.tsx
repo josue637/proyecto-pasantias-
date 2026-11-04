@@ -6,7 +6,7 @@ export function Story() {
     <section className="story-section" id="historia">
       <div className="story-image">
         <Image
-          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85"
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=75"
           alt="Interior sereno con materiales naturales y luz de tarde"
           fill
           sizes="(max-width: 640px) 100vw, 50vw"

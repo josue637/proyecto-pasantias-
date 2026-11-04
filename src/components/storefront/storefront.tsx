@@ -10,6 +10,7 @@ import { Newsletter } from "@/components/storefront/newsletter/newsletter";
 import { SiteFooter } from "@/components/storefront/site-footer/site-footer";
 import { SiteHeader } from "@/components/storefront/site-header/site-header";
 import { Story } from "@/components/storefront/story/story";
+import { WhatsAppButton } from "@/components/storefront/whatsapp-button";
 
 export function Storefront() {
   const [cartCount, setCartCount] = useState(0);
@@ -18,16 +19,21 @@ export function Storefront() {
   return (
     <>
       <AnnouncementBar />
-      <SiteHeader cartCount={cartCount} onSearch={setQuery} />
+      <SiteHeader cartCount={cartCount} query={query} onSearch={setQuery} />
       <main>
         <Hero />
         <Benefits />
         <CategoryGrid />
-        <FeaturedProducts query={query} onAdd={() => setCartCount((count) => count + 1)} />
+        <FeaturedProducts
+          query={query}
+          onQueryChange={setQuery}
+          onAdd={() => setCartCount((count) => count + 1)}
+        />
         <Story />
         <Newsletter />
       </main>
       <SiteFooter />
+      <WhatsAppButton />
     </>
   );
 }
