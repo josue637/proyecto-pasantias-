@@ -1,7 +1,7 @@
 import { WhatsAppIcon } from "@/components/storefront/icons";
 
 const message = encodeURIComponent(
-  "Hola, quiero recibir información sobre los productos de Lúmina.",
+  "Hola, quiero recibir información sobre los productos de Lúmina Tech.",
 );
 
 export function WhatsAppButton() {

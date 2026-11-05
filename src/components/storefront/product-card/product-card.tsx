@@ -44,9 +44,10 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
         <button
           className={`add-to-cart${added ? " is-added" : ""}`}
           type="button"
+          aria-label={added ? `${product.name} agregado a la bolsa` : `Agregar ${product.name} a la bolsa`}
           onClick={addToCart}
         >
-          {added ? "Agregado a tu bolsa" : "Agregar a la bolsa"}
+          {added ? "Agregado" : "Agregar"}
           {added ? <span aria-hidden="true">✓</span> : <PlusIcon width={15} height={15} />}
         </button>
       </div>

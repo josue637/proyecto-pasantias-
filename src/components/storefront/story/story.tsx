@@ -6,22 +6,22 @@ export function Story() {
     <section className="story-section" id="historia">
       <div className="story-image">
         <Image
-          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=75"
-          alt="Interior sereno con materiales naturales y luz de tarde"
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=75"
+          alt="Espacio de trabajo con computador y tecnología"
           fill
           sizes="(max-width: 640px) 100vw, 50vw"
         />
       </div>
       <div className="story-copy">
-        <p className="section-kicker">Menos, pero mejor</p>
-        <h2 className="section-title">Creemos en las cosas que se quedan.</h2>
+        <p className="section-kicker">Tecnología útil, sin complicaciones</p>
+        <h2 className="section-title">Conectamos tus ideas con lo que necesitas.</h2>
         <p>
-          En Lúmina elegimos piezas hechas con tiempo y materiales honestos.
-          Colaboramos con talleres independientes para que cada objeto tenga una
-          historia, y cada espacio, un poquito más de sentido.
+          En Lúmina reunimos dispositivos y accesorios que hacen más fácil
+          trabajar, comunicarte y disfrutar tu tiempo. Una selección clara,
+          precios en pesos chilenos y despacho a todo el país.
         </p>
-        <a className="button-primary" href="#historia">
-          Conoce nuestra historia <ArrowRightIcon width={17} height={17} />
+        <a className="button-primary" href="#productos">
+          Ver productos destacados <ArrowRightIcon width={17} height={17} />
         </a>
       </div>
     </section>

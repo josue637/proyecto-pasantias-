@@ -3,32 +3,32 @@ import { ArrowRightIcon } from "@/components/storefront/icons";
 
 const categories = [
   {
-    title: "Objetos con alma",
-    count: "18 piezas para descubrir",
+    title: "Audio",
+    count: "Audífonos y sonido",
     image:
-      "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=900&q=75",
-    alt: "Piezas de cerámica artesanal en tonos cálidos",
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=75",
+    alt: "Audífonos modernos para escuchar música",
   },
   {
-    title: "Textiles",
-    count: "Suavidad en cada detalle",
+    title: "Accesorios móviles",
+    count: "Carga y conectividad",
     image:
-      "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=700&q=75",
-    alt: "Textiles naturales en un espacio acogedor",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=75",
+    alt: "Teléfono inteligente de última generación",
   },
   {
-    title: "Iluminación",
-    count: "Luz para bajar el ritmo",
+    title: "Wearables",
+    count: "Tecnología que llevas contigo",
     image:
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=75",
-    alt: "Lámpara de diseño con luz cálida",
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=75",
+    alt: "Reloj inteligente con pantalla digital",
   },
   {
-    title: "Pequeños rituales",
-    count: "Detalles para todos los días",
+    title: "Hogar inteligente",
+    count: "Seguridad y automatización",
     image:
-      "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=75",
-    alt: "Vela artesanal y objetos para un momento de calma",
+      "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=700&q=75",
+    alt: "Dispositivos conectados para una casa inteligente",
   },
 ];
 
@@ -38,11 +38,11 @@ export function CategoryGrid() {
       <div className="section-wrap">
         <div className="section-heading">
           <div>
-            <p className="section-kicker">Encuentra tu inspiración</p>
-            <h2 className="section-title">Un rincón para cada idea.</h2>
+            <p className="section-kicker">Explora por categoría</p>
+            <h2 className="section-title">Tecnología para cada momento.</h2>
           </div>
           <a className="text-link" href="#productos">
-            Ver todas las piezas <ArrowRightIcon width={16} height={16} />
+            Ver productos <ArrowRightIcon width={16} height={16} />
           </a>
         </div>
         <div className="category-grid">

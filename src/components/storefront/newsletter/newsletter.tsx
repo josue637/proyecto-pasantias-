@@ -13,12 +13,12 @@ export function Newsletter() {
 
   return (
     <section className="newsletter" aria-labelledby="newsletter-title">
-      <p className="section-kicker">Una nota de vez en cuando</p>
+      <p className="section-kicker">Novedades y ofertas</p>
       <h2 className="section-title" id="newsletter-title">
-        Ideas bonitas, directo a tu correo.
+        Tecnología nueva, directo a tu correo.
       </h2>
       <p className="newsletter-copy">
-        Novedades, inspiración y un 10% de bienvenida en tu primera compra.
+        Recibe lanzamientos, ofertas y recomendaciones de productos.
       </p>
       <form className="newsletter-form" onSubmit={subscribe}>
         <input

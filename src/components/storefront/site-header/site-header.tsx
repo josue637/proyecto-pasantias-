@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   BagIcon,
   CloseIcon,
-  LeafIcon,
+  ChipIcon,
   MenuIcon,
   SearchIcon,
   UserIcon,
@@ -17,9 +17,10 @@ type SiteHeaderProps = {
 };
 
 const navigation = [
-  { label: "Novedades", href: "#productos" },
-  { label: "Colecciones", href: "#colecciones" },
-  { label: "Nuestra historia", href: "#historia" },
+  { label: "Productos", href: "/#productos" },
+  { label: "Categorías", href: "/#colecciones" },
+  { label: "Calificaciones", href: "/#calificaciones" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export function SiteHeader({ cartCount, query, onSearch }: SiteHeaderProps) {
@@ -49,11 +50,11 @@ export function SiteHeader({ cartCount, query, onSearch }: SiteHeaderProps) {
             </a>
           ))}
         </nav>
-        <a className="brand" href="#" aria-label="Lúmina, inicio">
+        <a className="brand" href="#" aria-label="Lúmina Tech, inicio">
           <span className="brand-mark">
-            <LeafIcon width={19} height={19} />
+            <ChipIcon width={19} height={19} />
           </span>
-          <span className="brand-name">LÚMINA</span>
+          <span className="brand-name">LÚMINA TECH</span>
         </a>
         <div className="header-actions">
           <button
@@ -107,7 +108,7 @@ export function SiteHeader({ cartCount, query, onSearch }: SiteHeaderProps) {
             id="product-search"
             className="search-input"
             type="search"
-            placeholder="Prueba con “cerámica”"
+            placeholder="Prueba con “audífonos”"
             value={query}
             onChange={(event) => updateSearch(event.target.value)}
             autoFocus
@@ -118,10 +119,10 @@ export function SiteHeader({ cartCount, query, onSearch }: SiteHeaderProps) {
         <div className="cart-panel">
           <strong>Tu bolsa</strong>
           {cartCount === 0 ? (
-            <p>Aún no tienes piezas en tu bolsa. Encuentra algo que te haga sentir en casa.</p>
+            <p>Aún no tienes productos en tu bolsa. Explora el catálogo para encontrar lo que necesitas.</p>
           ) : (
             <p>
-              Tienes {cartCount} {cartCount === 1 ? "pieza" : "piezas"} agregadas. El
+              Tienes {cartCount} {cartCount === 1 ? "producto" : "productos"} agregados. El
               checkout estará disponible en el siguiente paso.
             </p>
           )}

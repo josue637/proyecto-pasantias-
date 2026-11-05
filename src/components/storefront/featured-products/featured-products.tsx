@@ -82,10 +82,10 @@ export function FeaturedProducts({
       <div className="section-wrap">
         <div className="section-heading products-heading">
           <div>
-            <p className="section-kicker">Elegidos para ti</p>
-            <h2 className="section-title">Piezas que hacen hogar.</h2>
+            <p className="section-kicker">Selección destacada</p>
+            <h2 className="section-title">Tecnología que te sigue el ritmo.</h2>
             <p className="products-intro">
-              Diseñadas con intención, hechas para acompañarte por mucho tiempo.
+              Accesorios funcionales y dispositivos inteligentes para todos los días.
             </p>
           </div>
           <a className="text-link" href="#colecciones">
@@ -97,7 +97,7 @@ export function FeaturedProducts({
             <span>Buscar productos</span>
             <input
               type="search"
-              placeholder="Nombre, material o estilo"
+              placeholder="Producto o categoría"
               value={query}
               onChange={(event) => onQueryChange(event.target.value)}
             />
@@ -161,7 +161,7 @@ export function FeaturedProducts({
             ))
           ) : (
             <p className="no-results">
-              No encontramos piezas para “{query}”. Prueba con otra búsqueda.
+              No encontramos productos para “{query}”. Prueba con otra búsqueda.
             </p>
           )}
         </div>

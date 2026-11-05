@@ -1,9 +1,9 @@
-import { LeafIcon, PackageIcon, SparkleIcon } from "@/components/storefront/icons";
+import { ChipIcon, PackageIcon, SparkleIcon } from "@/components/storefront/icons";
 
 const benefits = [
-  { label: "Materiales nobles y duraderos", Icon: LeafIcon },
-  { label: "Envíos cuidados a todo el país", Icon: PackageIcon },
-  { label: "Diseño pensado para durar", Icon: SparkleIcon },
+  { label: "Tecnología seleccionada", Icon: ChipIcon },
+  { label: "Envíos a todo Chile", Icon: PackageIcon },
+  { label: "Compra simple y segura", Icon: SparkleIcon },
 ];
 
 export function Benefits() {
