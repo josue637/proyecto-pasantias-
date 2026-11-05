@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { HeartIcon, PlusIcon } from "@/components/storefront/icons";
 import { formatPrice, type Product } from "@/data/products";
@@ -28,6 +29,8 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
             src={product.image}
             alt={product.alt}
             fill
+            loading="lazy"
+            quality={70}
             sizes="(max-width: 640px) 48vw, (max-width: 900px) 48vw, 25vw"
           />
         </div>
@@ -61,6 +64,9 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
           <span className="stars" aria-hidden="true">★★★★★</span>
           <span>{product.rating} ({product.reviews})</span>
         </div>
+        <Link className="product-detail-link" href={`/productos/${product.id}`}>
+          Ver detalles
+        </Link>
       </div>
     </article>
   );

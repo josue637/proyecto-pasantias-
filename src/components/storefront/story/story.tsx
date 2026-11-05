@@ -9,6 +9,8 @@ export function Story() {
           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=75"
           alt="Espacio de trabajo con computador y tecnología"
           fill
+          loading="lazy"
+          quality={70}
           sizes="(max-width: 640px) 100vw, 50vw"
         />
       </div>

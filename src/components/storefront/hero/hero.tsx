@@ -6,7 +6,7 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-image">
         <Image
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=75"
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=70"
           alt="Equipo trabajando con computadores y dispositivos tecnológicos"
           fill
           priority

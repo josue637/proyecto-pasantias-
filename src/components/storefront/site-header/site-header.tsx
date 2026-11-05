@@ -18,7 +18,7 @@ type SiteHeaderProps = {
 
 const navigation = [
   { label: "Productos", href: "/#productos" },
-  { label: "Categorías", href: "/#colecciones" },
+  { label: "Categorías", href: "/colecciones" },
   { label: "Calificaciones", href: "/#calificaciones" },
   { label: "Contacto", href: "/contacto" },
 ];
