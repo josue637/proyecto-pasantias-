@@ -5,9 +5,9 @@ import { ChipIcon } from "@/components/storefront/icons";
 import { SiteFooter } from "@/components/storefront/site-footer/site-footer";
 
 export const metadata: Metadata = {
-  title: "Contacto y soporte en Chile | Lúmina Tech",
+  title: "Contacto y soporte en Venezuela | Lúmina Tech",
   description:
-    "Contacta al equipo de soporte de Lúmina Tech en Chile para resolver dudas sobre tecnología, productos y pedidos.",
+    "Contacta al equipo de soporte de Lúmina Tech en Venezuela para resolver dudas sobre tecnología, productos y pedidos.",
 };
 
 export default function ContactPage() {

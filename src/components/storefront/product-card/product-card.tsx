@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { HeartIcon, PlusIcon } from "@/components/storefront/icons";
-import { formatPrice, type Product } from "@/data/products";
+import { formatUsdPrice, type Product } from "@/data/products";
 
 type ProductCardProps = {
   product: Product;
-  onAdd: () => void;
+  onAdd: (productId: string) => void;
 };
 
 export function ProductCard({ product, onAdd }: ProductCardProps) {
@@ -16,7 +16,8 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
   const [added, setAdded] = useState(false);
 
   function addToCart() {
-    onAdd();
+    if (product.priceUsd === null) return;
+    onAdd(product.id);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1200);
   }
@@ -47,18 +48,19 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
         <button
           className={`add-to-cart${added ? " is-added" : ""}`}
           type="button"
-          aria-label={added ? `${product.name} agregado a la bolsa` : `Agregar ${product.name} a la bolsa`}
+          aria-label={product.priceUsd === null ? `Precio no configurado para ${product.name}` : added ? `${product.name} agregado a la bolsa` : `Agregar ${product.name} a la bolsa`}
+          disabled={product.priceUsd === null}
           onClick={addToCart}
         >
-          {added ? "Agregado" : "Agregar"}
-          {added ? <span aria-hidden="true">✓</span> : <PlusIcon width={15} height={15} />}
+          {product.priceUsd === null ? "Precio por confirmar" : added ? "Agregado" : "Agregar"}
+          {product.priceUsd !== null && (added ? <span aria-hidden="true">✓</span> : <PlusIcon width={15} height={15} />)}
         </button>
       </div>
       <div className="product-details">
         <p className="product-category">{product.category}</p>
         <div className="product-name-row">
           <h3 className="product-name">{product.name}</h3>
-          <span className="product-price">{formatPrice(product.price)}</span>
+          <span className="product-price">{formatUsdPrice(product.priceUsd)}</span>
         </div>
         <div className="product-rating" aria-label={`Calificación ${product.rating} de 5, ${product.reviews} reseñas`}>
           <span className="stars" aria-hidden="true">★★★★★</span>

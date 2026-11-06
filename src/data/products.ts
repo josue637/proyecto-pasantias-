@@ -3,7 +3,7 @@ export type Product = {
   name: string;
   category: string;
   description: string;
-  price: number;
+  priceUsd: number | null;
   rating: string;
   reviews: number;
   ratingVerified: boolean;
@@ -20,7 +20,7 @@ export const products: Product[] = [
     category: "Audio inalámbrico",
     description:
       "Audífonos inalámbricos con cancelación de ruido para escuchar música y atender llamadas.",
-    price: 59990,
+    priceUsd: null,
     rating: "4.9",
     reviews: 128,
     ratingVerified: false,
@@ -36,7 +36,7 @@ export const products: Product[] = [
     category: "Relojes inteligentes",
     description:
       "Reloj inteligente para consultar notificaciones y seguir tu actividad diaria.",
-    price: 79990,
+    priceUsd: null,
     rating: "5.0",
     reviews: 86,
     ratingVerified: false,
@@ -52,7 +52,7 @@ export const products: Product[] = [
     category: "Accesorios móviles",
     description:
       "Batería portátil de alta capacidad para mantener tus dispositivos móviles cargados.",
-    price: 29990,
+    priceUsd: null,
     rating: "4.8",
     reviews: 74,
     ratingVerified: false,
@@ -67,7 +67,7 @@ export const products: Product[] = [
     category: "Hogar inteligente",
     description:
       "Cámara compacta conectada para vigilar tu hogar desde dispositivos compatibles.",
-    price: 44990,
+    priceUsd: null,
     rating: "4.9",
     reviews: 53,
     ratingVerified: false,
@@ -79,10 +79,12 @@ export const products: Product[] = [
   },
 ];
 
-export function formatPrice(price: number) {
-  return new Intl.NumberFormat("es-CL", {
+export function formatUsdPrice(price: number | null) {
+  if (price === null) return "Precio por confirmar";
+
+  return new Intl.NumberFormat("es-VE", {
     style: "currency",
-    currency: "CLP",
-    maximumFractionDigits: 0,
+    currency: "USD",
+    maximumFractionDigits: 2,
   }).format(price);
 }

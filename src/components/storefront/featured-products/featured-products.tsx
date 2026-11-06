@@ -3,16 +3,20 @@
 import { ArrowRightIcon } from "@/components/storefront/icons";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/storefront/product-card/product-card";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type FeaturedProductsProps = {
   query: string;
   onQueryChange: (value: string) => void;
-  onAdd: () => void;
+  onAdd: (productId: string) => void;
 };
 
-type PriceFilter = "all" | "under-30000" | "30000-60000" | "over-60000";
+type PriceFilter = "all" | "under-30" | "30-60" | "over-60";
 type SortOrder = "featured" | "price-asc" | "price-desc" | "rating";
+
+type PaymentConfig = {
+  pricesUsd: Record<string, number> | null;
+};
 
 function normalizeText(value: string) {
   return value
@@ -22,14 +26,16 @@ function normalizeText(value: string) {
     .trim();
 }
 
-function matchesPrice(price: number, filter: PriceFilter) {
+function matchesPrice(price: number | null, filter: PriceFilter) {
+  if (price === null) return filter === "all";
+
   switch (filter) {
-    case "under-30000":
-      return price < 30000;
-    case "30000-60000":
-      return price >= 30000 && price <= 60000;
-    case "over-60000":
-      return price > 60000;
+    case "under-30":
+      return price < 30;
+    case "30-60":
+      return price >= 30 && price <= 60;
+    case "over-60":
+      return price > 60;
     default:
       return true;
   }
@@ -43,6 +49,26 @@ export function FeaturedProducts({
   const [category, setCategory] = useState("all");
   const [priceFilter, setPriceFilter] = useState<PriceFilter>("all");
   const [sortOrder, setSortOrder] = useState<SortOrder>("featured");
+  const [pricesUsd, setPricesUsd] = useState<Record<string, number> | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/payment-config")
+      .then(async (response) => {
+        if (!response.ok) throw new Error("No se pudo cargar la configuración de precios.");
+        return (await response.json()) as PaymentConfig;
+      })
+      .then((config) => {
+        if (active) setPricesUsd(config.pricesUsd);
+      })
+      .catch((error: unknown) => {
+        console.error("No se cargaron los precios USD del catálogo.", error);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
   const categories = useMemo(
     () => [...new Set(products.map((product) => product.category))],
     [],
@@ -56,19 +82,25 @@ export function FeaturedProducts({
       return (
         searchableText.includes(normalizedQuery) &&
         (category === "all" || product.category === category) &&
-        matchesPrice(product.price, priceFilter)
+        matchesPrice(pricesUsd?.[product.id] ?? null, priceFilter)
       );
     });
 
     return result.sort((first, second) => {
-      if (sortOrder === "price-asc") return first.price - second.price;
-      if (sortOrder === "price-desc") return second.price - first.price;
+      if (sortOrder === "price-asc" || sortOrder === "price-desc") {
+        const priceDifference =
+          (pricesUsd?.[first.id] ?? Number.POSITIVE_INFINITY) -
+          (pricesUsd?.[second.id] ?? Number.POSITIVE_INFINITY);
+        if (Number.isFinite(priceDifference) && priceDifference !== 0) {
+          return sortOrder === "price-asc" ? priceDifference : -priceDifference;
+        }
+      }
       if (sortOrder === "rating") {
         return Number(second.rating) - Number(first.rating);
       }
       return products.indexOf(first) - products.indexOf(second);
     });
-  }, [category, priceFilter, query, sortOrder]);
+  }, [category, priceFilter, pricesUsd, query, sortOrder]);
 
   function clearFilters() {
     onQueryChange("");
@@ -125,9 +157,9 @@ export function FeaturedProducts({
               }
             >
               <option value="all">Cualquier precio</option>
-              <option value="under-30000">Menos de $30.000</option>
-              <option value="30000-60000">$30.000 – $60.000</option>
-              <option value="over-60000">Más de $60.000</option>
+              <option value="under-30">Menos de US$30</option>
+              <option value="30-60">US$30 – US$60</option>
+              <option value="over-60">Más de US$60</option>
             </select>
           </label>
           <label className="product-filter-field">
@@ -157,7 +189,11 @@ export function FeaturedProducts({
         <div className="product-grid">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} onAdd={onAdd} />
+              <ProductCard
+                key={product.id}
+                product={{ ...product, priceUsd: pricesUsd?.[product.id] ?? null }}
+                onAdd={onAdd}
+              />
             ))
           ) : (
             <p className="no-results">

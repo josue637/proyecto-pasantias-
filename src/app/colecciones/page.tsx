@@ -4,11 +4,11 @@ import Link from "next/link";
 import { products } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "Colecciones de tecnología y accesorios en Chile | Lúmina Tech",
+  title: "Colecciones de tecnología y accesorios en Venezuela | Lúmina Tech",
   description:
-    "Explora colecciones de audio, relojes inteligentes, accesorios móviles y hogar inteligente con despacho en Chile.",
+    "Explora colecciones de audio, relojes inteligentes, accesorios móviles y hogar inteligente con despacho en Venezuela.",
   keywords: [
-    "colecciones de tecnología Chile",
+    "colecciones de tecnología Venezuela",
     "audio inalámbrico",
     "accesorios móviles",
     "hogar inteligente",

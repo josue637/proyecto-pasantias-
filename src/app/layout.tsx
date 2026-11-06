@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Lúmina Tech — tecnología para tu día a día",
   description:
-    "Descubre audífonos, accesorios móviles y tecnología inteligente en Lúmina Tech. Envíos a todo Chile.",
+    "Descubre audífonos, accesorios móviles y tecnología inteligente en Lúmina Tech. Envíos en Venezuela.",
 };
 
 export default function RootLayout({

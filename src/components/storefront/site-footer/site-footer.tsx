@@ -16,7 +16,7 @@ const footerLinks = [
       ["Envíos y cambios", "/#footer"],
       ["Preguntas frecuentes", "/#footer"],
       ["Contáctanos", "/contacto"],
-      ["Escríbenos", "mailto:contacto@luminatech.cl"],
+      ["Escríbenos", "mailto:contacto@luminatech.ve"],
     ],
   },
   {
@@ -58,20 +58,17 @@ export function SiteFooter() {
         ))}
       </div>
       <div className="payment-methods">
-        <h3>Medios de pago de ejemplo</h3>
-        <div className="payment-badges" aria-label="Webpay, Transbank, Mercado Pago, PayPal, Visa y Mastercard">
-          <span>Webpay</span>
-          <span>Transbank</span>
-          <span>Mercado Pago</span>
-          <span>PayPal</span>
-          <span>VISA</span>
-          <span>Mastercard</span>
+        <h3>Método de pago preparado</h3>
+        <div className="payment-badges" aria-label="Pago Móvil, dólares y bolívares">
+          <span>Pago Móvil</span>
+          <span>USD</span>
+          <span>VES</span>
         </div>
-        <p>Marcas y pasarelas ilustrativas; confirma las integraciones activas antes de vender.</p>
+        <p>Pago Móvil manual preparado; estará activo al configurar datos bancarios, precios y costos reales.</p>
       </div>
       <div className="footer-bottom">
         <span>© 2026 Lúmina Tech. Todos los derechos reservados.</span>
-        <span>Chile · CLP $</span>
+        <span>Venezuela · USD / VES</span>
       </div>
     </footer>
   );

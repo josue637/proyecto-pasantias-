@@ -20,7 +20,7 @@ export function Story() {
         <p>
           En Lúmina reunimos dispositivos y accesorios que hacen más fácil
           trabajar, comunicarte y disfrutar tu tiempo. Una selección clara,
-          precios en pesos chilenos y despacho a todo el país.
+          precios en dólares y opciones de pago locales para Venezuela.
         </p>
         <a className="button-primary" href="#productos">
           Ver productos destacados <ArrowRightIcon width={17} height={17} />

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-const supportEmail = "contacto@luminatech.cl";
+const supportEmail = "contacto@luminatech.ve";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -38,7 +38,7 @@ export function Contact() {
             {supportEmail}
           </a>
           <p className="contact-location">
-            Santiago, Chile <span>(ubicación de ejemplo)</span>
+            Caracas, Venezuela <span>(ubicación de ejemplo)</span>
           </p>
         </div>
         <form className="contact-form" onSubmit={sendMessage}>

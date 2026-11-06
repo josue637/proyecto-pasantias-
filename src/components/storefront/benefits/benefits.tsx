@@ -2,7 +2,7 @@ import { ChipIcon, PackageIcon, SparkleIcon } from "@/components/storefront/icon
 
 const benefits = [
   { label: "Tecnología seleccionada", Icon: ChipIcon },
-  { label: "Envíos a todo Chile", Icon: PackageIcon },
+  { label: "Envíos en Venezuela", Icon: PackageIcon },
   { label: "Compra simple y segura", Icon: SparkleIcon },
 ];
 

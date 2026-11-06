@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { formatPrice, products } from "@/data/products";
+import { formatUsdPrice, products } from "@/data/products";
+import { getConfiguredProductPrices } from "@/lib/product-pricing";
 
 type ProductPageProps = {
   params: Promise<{ id: string }>;
 };
 
-export function generateStaticParams() {
-  return products.map(({ id }) => ({ id }));
-}
+export const dynamic = "force-dynamic";
 
 function findProduct(id: string) {
   return products.find((product) => product.id === id);
@@ -29,14 +28,17 @@ export async function generateMetadata({
     };
   }
 
+  const prices = getConfiguredProductPrices();
+  const price = prices?.[product.id] ?? null;
+
   return {
-    title: `${product.name}: tecnología en Chile | Lúmina Tech`,
-    description: `${product.description} Precio de demostración: ${formatPrice(product.price)}. Revisa disponibilidad y detalles en Lúmina Tech Chile.`,
+    title: `${product.name}: tecnología en Venezuela | Lúmina Tech`,
+    description: `${product.description} ${price === null ? "Precio en USD por confirmar." : `Precio: ${formatUsdPrice(price)}.`} Consulta disponibilidad en Lúmina Tech Venezuela.`,
     keywords: [
       product.name,
       product.category,
-      `${product.name} Chile`,
-      "tecnología en Chile",
+      `${product.name} Venezuela`,
+      "tecnología en Venezuela",
     ],
   };
 }
@@ -47,6 +49,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   if (!product) notFound();
 
+  const prices = getConfiguredProductPrices();
+  const price = prices?.[product.id] ?? null;
   const structuredProduct = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -55,15 +59,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
     category: product.category,
     image: product.image,
     sku: product.id,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "CLP",
-      price: product.price,
-      availability: product.inStock
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
-      itemCondition: "https://schema.org/NewCondition",
-    },
+    ...(price === null
+      ? {}
+      : {
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "USD",
+            price,
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+        }),
     ...(product.ratingVerified
       ? {
           aggregateRating: {
@@ -109,12 +115,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <p className="section-kicker">{product.category}</p>
             <h1 className="section-title">{product.name}</h1>
             <p className="product-page-description">{product.description}</p>
-            <p className="product-page-price">{formatPrice(product.price)}</p>
+            <p className="product-page-price">{formatUsdPrice(price)}</p>
             <p className="product-page-stock">
               {product.inStock ? "Disponible en stock" : "Agotado"}
             </p>
             <p className="catalog-demo-note">
-              Ficha de demostración. Confirma precio y stock antes de comprar.
+              Ficha de demostración. Confirma el precio y disponibilidad antes
+              de comprar.
             </p>
             {!product.ratingVerified && (
               <p className="catalog-demo-note">

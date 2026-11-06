@@ -123,7 +123,10 @@ export function SiteHeader({ cartCount, query, onSearch }: SiteHeaderProps) {
           ) : (
             <p>
               Tienes {cartCount} {cartCount === 1 ? "producto" : "productos"} agregados. El
-              checkout estará disponible en el siguiente paso.
+              revisa el checkout con Pago Móvil.
+              <a className="cart-checkout-link" href="/checkout">
+                Ir al checkout
+              </a>
             </p>
           )}
         </div>
